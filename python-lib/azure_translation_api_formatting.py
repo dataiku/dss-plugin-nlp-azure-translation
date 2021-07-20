@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Module with classes to format results from the Amazon Translation API"""
+"""Module with classes to format results from the Azure Translation API"""
 
 import logging
 from typing import AnyStr
