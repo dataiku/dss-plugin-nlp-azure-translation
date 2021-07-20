@@ -7,16 +7,16 @@ import dataiku
 from dataiku.customrecipe import get_input_names_for_role
 from dataiku.customrecipe import get_output_names_for_role
 from dataiku.customrecipe import get_recipe_config
+from dkulib.dku_io_utils import set_column_descriptions
+from dkulib.parallelizer import DataFrameParallelizer
+from retry import retry
 
 from azure_translation_api_client import API_EXCEPTIONS
 from azure_translation_api_client import AzureTranslatorClient
 from azure_translation_api_formatting import TranslationAPIFormatter
-from dku_io_utils import set_column_description
 from plugin_io_utils import ErrorHandlingEnum
 from plugin_io_utils import validate_column_input
-from retry import retry
 
-from parallelizer import DataFrameParallelizer
 
 # ==============================================================================
 # SETUP
@@ -63,12 +63,9 @@ def call_translation_api(
     text_column: AnyStr,
     target_language: AnyStr,
     source_language: AnyStr = None,
-    split_sentences: AnyStr = "1",
-    preserve_formatting: AnyStr = "0",
-    formality: AnyStr = "default",
 ) -> AnyStr:
     """
-    Calls DeepL Translation API. No Source language means Autodetect.
+    Calls Azure Translator API. No Source language means Autodetect.
     """
     text = row[text_column]
     if not isinstance(text, str) or text.strip() == "":
@@ -113,8 +110,8 @@ df = df_parallelizer.run(
 output_df = formatter.format_df(df)
 output_dataset.write_with_schema(output_df)
 
-set_column_description(
+set_column_descriptions(
     input_dataset=input_dataset,
     output_dataset=output_dataset,
-    column_description_dict=formatter.column_description_dict,
+    column_descriptions=formatter.column_description_dict,
 )

@@ -1,3 +1,4 @@
 retry==0.9.2
 more-itertools==8.5.0
 tqdm==4.50.1
+git+https://github.com/dataiku/dss-plugin-dkulib.git@8f06a9804082f4c329e74f455219132e36006f7b#egg=dkulib

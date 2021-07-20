@@ -2,7 +2,7 @@
     "meta": {
         "label": "API configuration",
         "description": "Define presets for users to call the API with specific credentials, quota and parallelization parameters",
-        "icon": "icon-amazon-translate icon-cloud"
+        "icon": "icon-azure-cognitive-services icon-cloud"
     },
     "defaultDefinableAtProjectLevel": true,
     "defaultDefinableInline": false,
@@ -12,36 +12,21 @@
             "name": "separator_authentification",
             "label": "Authentification",
             "type": "SEPARATOR",
-            "description": "Please refer to the Azure documentation: https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/"
+            "description": "Please refer to the Azure documentation: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-how-to-signup"
         },
         {
             "name": "azure_api_key",
             "label": "Azure Translator API key",
             "description": "Azure Translator API key as string.",
-            "type": "STRING",
-            "mandatory": false
+            "type": "PASSWORD",
+            "mandatory": true
         },
         {
             "name": "azure_location",
             "label": "Azure Translator location",
             "description": "Azure Translator Resource location as string. For example: francecentral",
-            "type": "PASSWORD",
-            "mandatory": false
-        },
-        {
-            "name": "separator_performance",
-            "label": "Parallelization",
-            "type": "SEPARATOR"
-        },
-        {
-            "name": "parallel_workers",
-            "label": "Concurrency",
-            "description": "Number of threads calling the API in parallel (max 100). Increase to speed-up computation.",
-            "type": "INT",
-            "mandatory": true,
-            "defaultValue": 4,
-            "minI": 1,
-            "maxI": 100
+            "type": "STRING",
+            "mandatory": true
         },
         {
             "name": "separator_performance",

@@ -28,10 +28,9 @@ class AzureTranslatorClient:
     Args:
         api_key: Azure Translator API Key
         location: Azure location, e.g. francecentral
-
     """
 
-    def __init__(self, api_key, location) -> None:
+    def __init__(self, api_key: str, location: str) -> None:
         self.api_key = api_key
         self.location = location
 
@@ -65,12 +64,7 @@ class AzureTranslatorClient:
                 "Content-type": "application/json",
             },
             params={"api-version": "3.0", "from": source_language, "to": target_language},
-            data={
-                "source_lang": source_language,
-                "target_lang": target_language,
-                "auth_key": self.api_key,
-                "text": text,
-            },
+            json=[{"text": text}],
         )
         if response.status_code == requests.codes.ok:
             # Returns text from the response object which is a json string, so no need to dump it into json anymore
@@ -87,7 +81,7 @@ class AzureTranslatorClient:
             error_dict = json.loads(response.text).get("error", "")
 
             user_message = (
-                "Encountered the following error while sending an API request to DeepL:"
+                "Error:"
                 + f" HTTP Error Code: {response.status_code}"
                 + f" Azure Code: {error_dict.get('code', '')}"
                 + f" Azure Message: {error_dict.get('message', '')}"
