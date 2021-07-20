@@ -1,0 +1,87 @@
+{
+    "meta": {
+        "label": "API configuration",
+        "description": "Define presets for users to call the API with specific credentials, quota and parallelization parameters",
+        "icon": "icon-amazon-translate icon-cloud"
+    },
+    "defaultDefinableAtProjectLevel": true,
+    "defaultDefinableInline": false,
+    "definableInline": false,
+    "params": [
+        {
+            "name": "separator_authentification",
+            "label": "Authentification",
+            "type": "SEPARATOR",
+            "description": "Please refer to the Azure documentation: https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/"
+        },
+        {
+            "name": "azure_api_key",
+            "label": "Azure Translator API key",
+            "description": "Azure Translator API key as string.",
+            "type": "STRING",
+            "mandatory": false
+        },
+        {
+            "name": "azure_location",
+            "label": "Azure Translator location",
+            "description": "Azure Translator Resource location as string. For example: francecentral",
+            "type": "PASSWORD",
+            "mandatory": false
+        },
+        {
+            "name": "separator_performance",
+            "label": "Parallelization",
+            "type": "SEPARATOR"
+        },
+        {
+            "name": "parallel_workers",
+            "label": "Concurrency",
+            "description": "Number of threads calling the API in parallel (max 100). Increase to speed-up computation.",
+            "type": "INT",
+            "mandatory": true,
+            "defaultValue": 4,
+            "minI": 1,
+            "maxI": 100
+        },
+        {
+            "name": "separator_performance",
+            "label": "Parallelization",
+            "type": "SEPARATOR"
+        },
+        {
+            "name": "parallel_workers",
+            "label": "Concurrency",
+            "description": "Number of threads calling the API in parallel (max 100). Increase to speed-up computation.",
+            "type": "INT",
+            "mandatory": true,
+            "defaultValue": 4,
+            "minI": 1,
+            "maxI": 100
+        },
+        {
+            "name": "separator_api_quota",
+            "label": "Attempts",
+            "type": "SEPARATOR"
+        },
+        {
+            "name": "max_attempts",
+            "label": "Maximum Attempts",
+            "description": "Maximum number of retry attempts when an API request fails.",
+            "type": "INT",
+            "mandatory": true,
+            "defaultValue": 3,
+            "minI": 1,
+            "maxI": 100
+        },
+        {
+            "name": "wait_interval",
+            "label": "Waiting Interval",
+            "description": "Seconds to wait between reattempting in case of failure.",
+            "type": "INT",
+            "mandatory": true,
+            "defaultValue": 5,
+            "minI": 1,
+            "maxI": 60
+        }
+    ]
+}
