@@ -2,8 +2,8 @@
   "meta": {
     "label": "Azure Translation",
     "displayOrderRank": 1,
-    "description": "Translate a text column to another language with  [Azure Translation](ttps://azure.microsoft.com/en-us/services/cognitive-services/translator/)",
-    "icon": "icon-amazon-translate icon-cloud"
+    "description": "Translate a text column to another language with [Azure Translation](ttps://azure.microsoft.com/en-us/services/cognitive-services/translator/)",
+    "icon": "icon-azure-cognitive-services icon-cloud"
   },
   "kind": "PYTHON",
   "selectableFromDataset": "input_dataset",
