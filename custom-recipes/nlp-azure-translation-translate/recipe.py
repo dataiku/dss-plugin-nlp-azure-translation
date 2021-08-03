@@ -9,13 +9,6 @@ from dataiku.customrecipe import get_output_names_for_role
 from dataiku.customrecipe import get_recipe_config
 from retry import retry
 
-print("TEST")
-import os
-import dkulib
-print("PATHHHH", dkulib.__path__)
-import dkulib.core
-from dkulib.core.dku_io_utils import set_column_descriptions
-
 from azure_translation_api_client import API_EXCEPTIONS
 from azure_translation_api_client import AzureTranslatorClient
 from azure_translation_api_formatting import TranslationAPIFormatter
