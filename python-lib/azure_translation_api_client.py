@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Module with utility functions to call the DeepL translation API"""
+"""Module with utility functions to call the Azure Translator API"""
 
 import json
 import logging
@@ -23,7 +23,7 @@ API_EXCEPTIONS = (requests.HTTPError,)
 
 class AzureTranslatorClient:
     """
-    Translation client interfacing with Azure Translator.
+    Translation client interfacing with the Azure Translator.
 
     Args:
         api_key: Azure Translator API Key
@@ -39,10 +39,10 @@ class AzureTranslatorClient:
 
     def translate(
         self,
-        text: str,
-        target_language: str,
-        source_language: str = None,
-    ) -> str:
+        text: AnyStr,
+        target_language: AnyStr,
+        source_language: AnyStr = None,
+    ) -> AnyStr:
         """
         Translates text.
 
@@ -84,10 +84,10 @@ class AzureTranslatorClient:
             #        "message": "The request is not authorized because credentials are missing or invalid."
             #    }
             # }
-            error_dict = json.loads(response.text).get("error", "")
+            error_dict = json.loads(response.text).get("error", {})
 
             user_message = (
-                "Encountered the following error while sending an API request to DeepL:"
+                "Encountered the following error while sending an API request to Azure:"
                 + f" HTTP Error Code: {response.status_code}"
                 + f" Azure Code: {error_dict.get('code', '')}"
                 + f" Azure Message: {error_dict.get('message', '')}"

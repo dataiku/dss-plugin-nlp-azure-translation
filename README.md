@@ -1,4 +1,4 @@
-# Amazon Translation Plugin
+# Azure Translation Plugin
 
 ![Build status](https://github.com/dataiku/dss-plugin-nlp-azure-translation/actions/workflows/auto-make.yml/badge.svg) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/dataiku/dss-plugin-nlp-azure-translation?logo=github) ![Support level](https://img.shields.io/badge/support-Unsupported-orange)
 

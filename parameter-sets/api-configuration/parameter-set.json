@@ -24,24 +24,9 @@
         {
             "name": "azure_location",
             "label": "Azure Translator location",
-            "description": "Azure Translator Resource location as string. For example: francecentral",
+            "description": "Azure Translator Resource location as string, for example: francecentral",
             "type": "PASSWORD",
             "mandatory": false
-        },
-        {
-            "name": "separator_performance",
-            "label": "Parallelization",
-            "type": "SEPARATOR"
-        },
-        {
-            "name": "parallel_workers",
-            "label": "Concurrency",
-            "description": "Number of threads calling the API in parallel (max 100). Increase to speed-up computation.",
-            "type": "INT",
-            "mandatory": true,
-            "defaultValue": 4,
-            "minI": 1,
-            "maxI": 100
         },
         {
             "name": "separator_performance",

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Module with classes to format results from the Amazon Translation API"""
+"""Module with classes to format results from the Azure Translator API"""
 
 import logging
 from typing import AnyStr
@@ -9,12 +9,11 @@ from typing import List
 import pandas as pd
 
 from plugin_io_utils import API_COLUMN_NAMES_DESCRIPTION_DICT
-from plugin_io_utils import ErrorHandlingEnum
 from plugin_io_utils import build_unique_column_names
+from plugin_io_utils import ErrorHandlingEnum
 from plugin_io_utils import generate_unique
-from plugin_io_utils import safe_json_loads
 from plugin_io_utils import move_api_columns_to_end
-
+from plugin_io_utils import safe_json_loads
 
 LANGUAGE_CODE_LABELS = {
     "af": "Afrikaans",
