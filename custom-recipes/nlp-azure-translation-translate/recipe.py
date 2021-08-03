@@ -7,13 +7,13 @@ import dataiku
 from dataiku.customrecipe import get_input_names_for_role
 from dataiku.customrecipe import get_output_names_for_role
 from dataiku.customrecipe import get_recipe_config
+from dkulib.core.dku_io_utils import set_column_descriptions
+from dkulib.core.parallelizer import DataFrameParallelizer
 from retry import retry
 
 from azure_translation_api_client import API_EXCEPTIONS
 from azure_translation_api_client import AzureTranslatorClient
 from azure_translation_api_formatting import TranslationAPIFormatter
-from dkulib.core.dku_io_utils import set_column_descriptions
-from dkulib.core.parallelizer import DataFrameParallelizer
 from plugin_io_utils import ErrorHandlingEnum
 from plugin_io_utils import validate_column_input
 
