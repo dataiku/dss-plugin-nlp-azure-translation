@@ -41,7 +41,7 @@ class AzureTranslatorClient:
         self,
         text: AnyStr,
         target_language: AnyStr,
-        source_language: AnyStr = None,
+        source_language: AnyStr = "",
     ) -> AnyStr:
         """
         Translates text.
