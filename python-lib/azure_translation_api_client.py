@@ -15,7 +15,7 @@ import requests
 
 API_EXCEPTIONS = (requests.HTTPError,)
 AZURE_ENDPOINT = "https://api.cognitive.microsofttranslator.com/translate"
-AZURE_VERSION = "3.0"
+AZURE_TRANSLATION_API_VERSION = "3.0"
 
 
 # ==============================================================================
@@ -64,7 +64,11 @@ class AzureTranslatorClient:
                 "Ocp-Apim-Subscription-Region": self.location,
                 "Content-type": "application/json",
             },
-            params={"api-version": AZURE_VERSION, "from": source_language, "to": target_language},
+            params={
+                "api-version": AZURE_TRANSLATION_API_VERSION,
+                "from": source_language,
+                "to": target_language,
+            },
             json=[{"text": text}],
         )
         if response.status_code == requests.codes.ok:
