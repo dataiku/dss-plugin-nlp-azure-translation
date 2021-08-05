@@ -61,10 +61,10 @@ def call_translation_api(
     row: Dict,
     text_column: AnyStr,
     target_language: AnyStr,
-    source_language: AnyStr = None,
+    source_language: AnyStr = "",
 ) -> AnyStr:
     """
-    Calls Azure Translation API. No Source language means Autodetect.
+    Calls Azure Translation API. An empty source language means autodetect.
     """
     text = row[text_column]
     if not isinstance(text, str) or text.strip() == "":
