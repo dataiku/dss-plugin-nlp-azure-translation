@@ -18,15 +18,15 @@
             "name": "azure_api_key",
             "label": "Azure Translator API key",
             "description": "Azure Translator API key as string.",
-            "type": "STRING",
-            "mandatory": false
+            "type": "PASSWORD",
+            "mandatory": true
         },
         {
             "name": "azure_location",
             "label": "Azure Translator location",
             "description": "Azure Translator Resource location as string, for example: francecentral",
-            "type": "PASSWORD",
-            "mandatory": false
+            "type": "STRING",
+            "mandatory": true
         },
         {
             "name": "separator_performance",
