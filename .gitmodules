@@ -1,3 +1,0 @@
-[submodule "python-lib/dkulib"]
-	path = python-lib/dkulib
-	url = https://github.com/dataiku/dss-plugin-dkulib
