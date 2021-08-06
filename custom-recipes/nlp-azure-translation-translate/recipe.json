@@ -1,0 +1,812 @@
+{
+  "meta": {
+    "label": "Azure Translation",
+    "displayOrderRank": 1,
+    "description": "Translate a text column to another language with [Azure Translation](https://azure.microsoft.com/en-us/services/cognitive-services/translator/)",
+    "icon": "icon-azure-cognitive-services icon-cloud"
+  },
+  "kind": "PYTHON",
+  "selectableFromDataset": "input_dataset",
+  "inputRoles": [
+    {
+      "name": "input_dataset",
+      "label": "Input Dataset",
+      "description": "Dataset with a text column to translate",
+      "arity": "UNARY",
+      "required": true,
+      "acceptsDataset": true
+    }
+  ],
+  "outputRoles": [
+    {
+      "name": "output_dataset",
+      "label": "Output dataset",
+      "description": "Dataset with text translated to another language",
+      "arity": "UNARY",
+      "required": true,
+      "acceptsDataset": true
+    }
+  ],
+  "params": [
+    {
+      "name": "separator_input",
+      "label": "Input parameters",
+      "type": "SEPARATOR"
+    },
+    {
+      "name": "text_column",
+      "label": "Text column",
+      "type": "COLUMN",
+      "columnRole": "input_dataset",
+      "mandatory": true,
+      "allowedColumnTypes": [
+        "string"
+      ]
+    },
+    {
+      "name": "source_language",
+      "label": "Source language",
+      "description": "Language to translate from",
+      "type": "SELECT",
+      "mandatory": true,
+      "selectChoices": [
+        {
+          "value": "auto",
+          "label": "Auto-detect"
+        },
+        {
+          "label": "Afrikaans [af]",
+          "value": "af"
+        },
+        {
+          "label": "Amharic [am]",
+          "value": "am"
+        },
+        {
+          "label": "Arabic [ar]",
+          "value": "ar"
+        },
+        {
+          "label": "Assamese [as]",
+          "value": "as"
+        },
+        {
+          "label": "Azerbaijani [az]",
+          "value": "az"
+        },
+        {
+          "label": "Bulgarian [bg]",
+          "value": "bg"
+        },
+        {
+          "label": "Bangla [bn]",
+          "value": "bn"
+        },
+        {
+          "label": "Bosnian [bs]",
+          "value": "bs"
+        },
+        {
+          "label": "Catalan [ca]",
+          "value": "ca"
+        },
+        {
+          "label": "Czech [cs]",
+          "value": "cs"
+        },
+        {
+          "label": "Welsh [cy]",
+          "value": "cy"
+        },
+        {
+          "label": "Danish [da]",
+          "value": "da"
+        },
+        {
+          "label": "German [de]",
+          "value": "de"
+        },
+        {
+          "label": "Greek [el]",
+          "value": "el"
+        },
+        {
+          "label": "English [en]",
+          "value": "en"
+        },
+        {
+          "label": "Spanish [es]",
+          "value": "es"
+        },
+        {
+          "label": "Estonian [et]",
+          "value": "et"
+        },
+        {
+          "label": "Persian [fa]",
+          "value": "fa"
+        },
+        {
+          "label": "Finnish [fi]",
+          "value": "fi"
+        },
+        {
+          "label": "Filipino [fil]",
+          "value": "fil"
+        },
+        {
+          "label": "Fijian [fj]",
+          "value": "fj"
+        },
+        {
+          "label": "French [fr]",
+          "value": "fr"
+        },
+        {
+          "label": "French (Canada) [fr-CA]",
+          "value": "fr-CA"
+        },
+        {
+          "label": "Irish [ga]",
+          "value": "ga"
+        },
+        {
+          "label": "Gujarati [gu]",
+          "value": "gu"
+        },
+        {
+          "label": "Hebrew [he]",
+          "value": "he"
+        },
+        {
+          "label": "Hindi [hi]",
+          "value": "hi"
+        },
+        {
+          "label": "Croatian [hr]",
+          "value": "hr"
+        },
+        {
+          "label": "Haitian Creole [ht]",
+          "value": "ht"
+        },
+        {
+          "label": "Hungarian [hu]",
+          "value": "hu"
+        },
+        {
+          "label": "Armenian [hy]",
+          "value": "hy"
+        },
+        {
+          "label": "Indonesian [id]",
+          "value": "id"
+        },
+        {
+          "label": "Icelandic [is]",
+          "value": "is"
+        },
+        {
+          "label": "Italian [it]",
+          "value": "it"
+        },
+        {
+          "label": "Inuktitut [iu]",
+          "value": "iu"
+        },
+        {
+          "label": "Japanese [ja]",
+          "value": "ja"
+        },
+        {
+          "label": "Kazakh [kk]",
+          "value": "kk"
+        },
+        {
+          "label": "Khmer [km]",
+          "value": "km"
+        },
+        {
+          "label": "Kurdish (Northern) [kmr]",
+          "value": "kmr"
+        },
+        {
+          "label": "Kannada [kn]",
+          "value": "kn"
+        },
+        {
+          "label": "Korean [ko]",
+          "value": "ko"
+        },
+        {
+          "label": "Kurdish (Central) [ku]",
+          "value": "ku"
+        },
+        {
+          "label": "Lao [lo]",
+          "value": "lo"
+        },
+        {
+          "label": "Lithuanian [lt]",
+          "value": "lt"
+        },
+        {
+          "label": "Latvian [lv]",
+          "value": "lv"
+        },
+        {
+          "label": "Malagasy [mg]",
+          "value": "mg"
+        },
+        {
+          "label": "Maori [mi]",
+          "value": "mi"
+        },
+        {
+          "label": "Malayalam [ml]",
+          "value": "ml"
+        },
+        {
+          "label": "Marathi [mr]",
+          "value": "mr"
+        },
+        {
+          "label": "Malay [ms]",
+          "value": "ms"
+        },
+        {
+          "label": "Maltese [mt]",
+          "value": "mt"
+        },
+        {
+          "label": "Hmong Daw [mww]",
+          "value": "mww"
+        },
+        {
+          "label": "Myanmar (Burmese) [my]",
+          "value": "my"
+        },
+        {
+          "label": "Norwegian [nb]",
+          "value": "nb"
+        },
+        {
+          "label": "Nepali [ne]",
+          "value": "ne"
+        },
+        {
+          "label": "Dutch [nl]",
+          "value": "nl"
+        },
+        {
+          "label": "Odia [or]",
+          "value": "or"
+        },
+        {
+          "label": "Querétaro Otomi [otq]",
+          "value": "otq"
+        },
+        {
+          "label": "Punjabi [pa]",
+          "value": "pa"
+        },
+        {
+          "label": "Polish [pl]",
+          "value": "pl"
+        },
+        {
+          "label": "Dari [prs]",
+          "value": "prs"
+        },
+        {
+          "label": "Pashto [ps]",
+          "value": "ps"
+        },
+        {
+          "label": "Portuguese (Brazil) [pt]",
+          "value": "pt"
+        },
+        {
+          "label": "Portuguese (Portugal) [pt-PT]",
+          "value": "pt-PT"
+        },
+        {
+          "label": "Romanian [ro]",
+          "value": "ro"
+        },
+        {
+          "label": "Russian [ru]",
+          "value": "ru"
+        },
+        {
+          "label": "Slovak [sk]",
+          "value": "sk"
+        },
+        {
+          "label": "Slovenian [sl]",
+          "value": "sl"
+        },
+        {
+          "label": "Samoan [sm]",
+          "value": "sm"
+        },
+        {
+          "label": "Albanian [sq]",
+          "value": "sq"
+        },
+        {
+          "label": "Serbian (Cyrillic) [sr-Cyrl]",
+          "value": "sr-Cyrl"
+        },
+        {
+          "label": "Serbian (Latin) [sr-Latn]",
+          "value": "sr-Latn"
+        },
+        {
+          "label": "Swedish [sv]",
+          "value": "sv"
+        },
+        {
+          "label": "Swahili [sw]",
+          "value": "sw"
+        },
+        {
+          "label": "Tamil [ta]",
+          "value": "ta"
+        },
+        {
+          "label": "Telugu [te]",
+          "value": "te"
+        },
+        {
+          "label": "Thai [th]",
+          "value": "th"
+        },
+        {
+          "label": "Tigrinya [ti]",
+          "value": "ti"
+        },
+        {
+          "label": "Klingon (Latin) [tlh-Latn]",
+          "value": "tlh-Latn"
+        },
+        {
+          "label": "Klingon (pIqaD) [tlh-Piqd]",
+          "value": "tlh-Piqd"
+        },
+        {
+          "label": "Tongan [to]",
+          "value": "to"
+        },
+        {
+          "label": "Turkish [tr]",
+          "value": "tr"
+        },
+        {
+          "label": "Tahitian [ty]",
+          "value": "ty"
+        },
+        {
+          "label": "Ukrainian [uk]",
+          "value": "uk"
+        },
+        {
+          "label": "Urdu [ur]",
+          "value": "ur"
+        },
+        {
+          "label": "Vietnamese [vi]",
+          "value": "vi"
+        },
+        {
+          "label": "Yucatec Maya [yua]",
+          "value": "yua"
+        },
+        {
+          "label": "Cantonese (Traditional) [yue]",
+          "value": "yue"
+        },
+        {
+          "label": "Chinese Simplified [zh-Hans]",
+          "value": "zh-Hans"
+        },
+        {
+          "label": "Chinese Traditional [zh-Hant]",
+          "value": "zh-Hant"
+        }
+      ],
+      "defaultValue": "auto"
+    },
+    {
+      "name": "target_language",
+      "label": "Target language",
+      "description": "Language to translate to",
+      "type": "SELECT",
+      "mandatory": true,
+      "selectChoices": [
+        {
+          "label": "Afrikaans [af]",
+          "value": "af"
+        },
+        {
+          "label": "Amharic [am]",
+          "value": "am"
+        },
+        {
+          "label": "Arabic [ar]",
+          "value": "ar"
+        },
+        {
+          "label": "Assamese [as]",
+          "value": "as"
+        },
+        {
+          "label": "Azerbaijani [az]",
+          "value": "az"
+        },
+        {
+          "label": "Bulgarian [bg]",
+          "value": "bg"
+        },
+        {
+          "label": "Bangla [bn]",
+          "value": "bn"
+        },
+        {
+          "label": "Bosnian [bs]",
+          "value": "bs"
+        },
+        {
+          "label": "Catalan [ca]",
+          "value": "ca"
+        },
+        {
+          "label": "Czech [cs]",
+          "value": "cs"
+        },
+        {
+          "label": "Welsh [cy]",
+          "value": "cy"
+        },
+        {
+          "label": "Danish [da]",
+          "value": "da"
+        },
+        {
+          "label": "German [de]",
+          "value": "de"
+        },
+        {
+          "label": "Greek [el]",
+          "value": "el"
+        },
+        {
+          "label": "English [en]",
+          "value": "en"
+        },
+        {
+          "label": "Spanish [es]",
+          "value": "es"
+        },
+        {
+          "label": "Estonian [et]",
+          "value": "et"
+        },
+        {
+          "label": "Persian [fa]",
+          "value": "fa"
+        },
+        {
+          "label": "Finnish [fi]",
+          "value": "fi"
+        },
+        {
+          "label": "Filipino [fil]",
+          "value": "fil"
+        },
+        {
+          "label": "Fijian [fj]",
+          "value": "fj"
+        },
+        {
+          "label": "French [fr]",
+          "value": "fr"
+        },
+        {
+          "label": "French (Canada) [fr-CA]",
+          "value": "fr-CA"
+        },
+        {
+          "label": "Irish [ga]",
+          "value": "ga"
+        },
+        {
+          "label": "Gujarati [gu]",
+          "value": "gu"
+        },
+        {
+          "label": "Hebrew [he]",
+          "value": "he"
+        },
+        {
+          "label": "Hindi [hi]",
+          "value": "hi"
+        },
+        {
+          "label": "Croatian [hr]",
+          "value": "hr"
+        },
+        {
+          "label": "Haitian Creole [ht]",
+          "value": "ht"
+        },
+        {
+          "label": "Hungarian [hu]",
+          "value": "hu"
+        },
+        {
+          "label": "Armenian [hy]",
+          "value": "hy"
+        },
+        {
+          "label": "Indonesian [id]",
+          "value": "id"
+        },
+        {
+          "label": "Icelandic [is]",
+          "value": "is"
+        },
+        {
+          "label": "Italian [it]",
+          "value": "it"
+        },
+        {
+          "label": "Inuktitut [iu]",
+          "value": "iu"
+        },
+        {
+          "label": "Japanese [ja]",
+          "value": "ja"
+        },
+        {
+          "label": "Kazakh [kk]",
+          "value": "kk"
+        },
+        {
+          "label": "Khmer [km]",
+          "value": "km"
+        },
+        {
+          "label": "Kurdish (Northern) [kmr]",
+          "value": "kmr"
+        },
+        {
+          "label": "Kannada [kn]",
+          "value": "kn"
+        },
+        {
+          "label": "Korean [ko]",
+          "value": "ko"
+        },
+        {
+          "label": "Kurdish (Central) [ku]",
+          "value": "ku"
+        },
+        {
+          "label": "Lao [lo]",
+          "value": "lo"
+        },
+        {
+          "label": "Lithuanian [lt]",
+          "value": "lt"
+        },
+        {
+          "label": "Latvian [lv]",
+          "value": "lv"
+        },
+        {
+          "label": "Malagasy [mg]",
+          "value": "mg"
+        },
+        {
+          "label": "Maori [mi]",
+          "value": "mi"
+        },
+        {
+          "label": "Malayalam [ml]",
+          "value": "ml"
+        },
+        {
+          "label": "Marathi [mr]",
+          "value": "mr"
+        },
+        {
+          "label": "Malay [ms]",
+          "value": "ms"
+        },
+        {
+          "label": "Maltese [mt]",
+          "value": "mt"
+        },
+        {
+          "label": "Hmong Daw [mww]",
+          "value": "mww"
+        },
+        {
+          "label": "Myanmar (Burmese) [my]",
+          "value": "my"
+        },
+        {
+          "label": "Norwegian [nb]",
+          "value": "nb"
+        },
+        {
+          "label": "Nepali [ne]",
+          "value": "ne"
+        },
+        {
+          "label": "Dutch [nl]",
+          "value": "nl"
+        },
+        {
+          "label": "Odia [or]",
+          "value": "or"
+        },
+        {
+          "label": "Querétaro Otomi [otq]",
+          "value": "otq"
+        },
+        {
+          "label": "Punjabi [pa]",
+          "value": "pa"
+        },
+        {
+          "label": "Polish [pl]",
+          "value": "pl"
+        },
+        {
+          "label": "Dari [prs]",
+          "value": "prs"
+        },
+        {
+          "label": "Pashto [ps]",
+          "value": "ps"
+        },
+        {
+          "label": "Portuguese (Brazil) [pt]",
+          "value": "pt"
+        },
+        {
+          "label": "Portuguese (Portugal) [pt-PT]",
+          "value": "pt-PT"
+        },
+        {
+          "label": "Romanian [ro]",
+          "value": "ro"
+        },
+        {
+          "label": "Russian [ru]",
+          "value": "ru"
+        },
+        {
+          "label": "Slovak [sk]",
+          "value": "sk"
+        },
+        {
+          "label": "Slovenian [sl]",
+          "value": "sl"
+        },
+        {
+          "label": "Samoan [sm]",
+          "value": "sm"
+        },
+        {
+          "label": "Albanian [sq]",
+          "value": "sq"
+        },
+        {
+          "label": "Serbian (Cyrillic) [sr-Cyrl]",
+          "value": "sr-Cyrl"
+        },
+        {
+          "label": "Serbian (Latin) [sr-Latn]",
+          "value": "sr-Latn"
+        },
+        {
+          "label": "Swedish [sv]",
+          "value": "sv"
+        },
+        {
+          "label": "Swahili [sw]",
+          "value": "sw"
+        },
+        {
+          "label": "Tamil [ta]",
+          "value": "ta"
+        },
+        {
+          "label": "Telugu [te]",
+          "value": "te"
+        },
+        {
+          "label": "Thai [th]",
+          "value": "th"
+        },
+        {
+          "label": "Tigrinya [ti]",
+          "value": "ti"
+        },
+        {
+          "label": "Klingon (Latin) [tlh-Latn]",
+          "value": "tlh-Latn"
+        },
+        {
+          "label": "Klingon (pIqaD) [tlh-Piqd]",
+          "value": "tlh-Piqd"
+        },
+        {
+          "label": "Tongan [to]",
+          "value": "to"
+        },
+        {
+          "label": "Turkish [tr]",
+          "value": "tr"
+        },
+        {
+          "label": "Tahitian [ty]",
+          "value": "ty"
+        },
+        {
+          "label": "Ukrainian [uk]",
+          "value": "uk"
+        },
+        {
+          "label": "Urdu [ur]",
+          "value": "ur"
+        },
+        {
+          "label": "Vietnamese [vi]",
+          "value": "vi"
+        },
+        {
+          "label": "Yucatec Maya [yua]",
+          "value": "yua"
+        },
+        {
+          "label": "Cantonese (Traditional) [yue]",
+          "value": "yue"
+        },
+        {
+          "label": "Chinese Simplified [zh-Hans]",
+          "value": "zh-Hans"
+        },
+        {
+          "label": "Chinese Traditional [zh-Hant]",
+          "value": "zh-Hant"
+        }
+      ],
+      "defaultValue": "en"
+    },
+    {
+      "name": "separator_configuration",
+      "label": "Configuration",
+      "type": "SEPARATOR"
+    },
+    {
+      "name": "api_configuration_preset",
+      "label": "API configuration preset",
+      "type": "PRESET",
+      "parameterSetId": "api-configuration",
+      "mandatory": true
+    },
+    {
+      "name": "fail_on_error",
+      "label": "Fail on error",
+      "type": "BOOLEAN",
+      "description": "Abort execution if any issues are raised. By default, errors will be logged per record in the output.",
+      "defaultValue": false,
+      "mandatory": true
+    }
+  ],
+  "resourceKeys": []
+}
